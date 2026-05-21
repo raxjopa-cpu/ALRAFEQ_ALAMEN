@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرفيق الأمين للسياحة والسفر | Elite Luxury Travel</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Tajawal for Arabic, Satoshi & Inter for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            950: '#F8FAFC', /* Alabaster Soft White */
+                            900: '#FFFFFF', /* Pure White */
+                            800: '#F1F5F9', /* Platinum Slate */
+                            700: '#E2E8F0', /* Light Border Gray */
+                            deep: '#0B1528' /* Deep Contrast Blue for text */
+                        },
+                        gold: {
+                            50: '#FDFBF7',
+                            100: '#FAF4E9',
+                            200: '#F1E2C3',
+                            300: '#E4CA94',
+                            400: '#D5AD5F',
+                            500: '#C5953F',
+                            600: '#B07E30',
+                            700: '#946325',
+                            800: '#754D1F',
+                            900: '#5A3A1A',
+                            accent: '#D4AF37'
+                        },
+                        royal: {
+                            50: '#EEF2FF',
+                            500: '#0D47A1', /* Royal Blue */
+                            600: '#1E40AF',
+                            700: '#1D4ED8',
+                            950: '#0B132B'
+                        }
+                    },
+                    fontFamily: {
+                        arabic: ['Cairo', 'Tajawal', 'sans-serif'],
+                        english: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 50px -15px rgba(212, 175, 55, 0.12)',
+                        'soft-blue': '0 20px 50px -15px rgba(13, 71, 161, 0.08)',
+                        'neon-gold': '0 0 30px rgba(212, 175, 55, 0.15)',
+                        'floating': '0 30px 60px -15px rgba(0, 0, 0, 0.05)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Premium Light Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        .glass-panel-light {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(13, 71, 161, 0.08);
+        }
+        
+        /* 3D Interactive Tilt Card Custom CSS */
+        .tilt-card {
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .tilt-card-inner {
+            transform: translateZ(30px);
+        }
+        
+        /* Floating Glass Nav with Rounded Corners */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.12);
+        }
+        
+        /* Ambient Gradients - Champagne & Soft Royal Blue */
+        .ambient-glow-gold {
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        .ambient-glow-blue {
+            background: radial-gradient(circle, rgba(13, 71, 161, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 9999px;
+            border: 2px solid #F8FAFC;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1.5deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-rotate-slow {
+            animation: rotateSlow 25s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.02), transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Gold metallic text effect */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #A87C11 0%, #D4AF37 50%, #C5953F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Holographic Virtual Card Animation */
+        .holo-card {
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .holo-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(
+                115deg,
+                rgba(255,255,255,0) 0%,
+                rgba(212,175,55,0.06) 30%,
+                rgba(255,255,255,0.4) 48%,
+                rgba(212,175,55,0.2) 52%,
+                rgba(255,255,255,0) 100%
+            );
+            transform: rotate(30deg);
+            transition: 0.8s;
+            opacity: 0;
+        }
+        .holo-card:hover::before {
+            transform: translate(15%, 15%) rotate(30deg);
+            opacity: 1;
+        }
+
+        /* Brilliant White Shimmer Sweep Animation for Luxury Buttons */
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -150%;
+            width: 80%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.9) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(25deg);
+            transition: all 0.75s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 0;
+        }
+        .btn-shimmer:hover::after {
+            left: 180%;
+            opacity: 1;
+        }
+        .btn-shimmer:hover {
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.35);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-slate-800 font-arabic overflow-x-hidden relative selection:bg-gold-accent selection:text-white">
+
+    <!-- Ambient Backgrounds & Glows -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 right-0 w-[80vw] h-[80vw] ambient-glow-gold rounded-full opacity-60"></div>
+        <div class="absolute bottom-10 left-0 w-[90vw] h-[90vw] ambient-glow-blue rounded-full opacity-50"></div>
+        <div class="absolute top-1/3 left-1/4 w-[50vw] h-[50vw] ambient-glow-gold rounded-full opacity-40"></div>
+    </div>
+
+    <!-- Floating and Rounded Navigation Bar -->
+    <header class="fixed top-4 left-4 right-4 z-50 max-w-7xl mx-auto">
+        <nav class="glass-nav rounded-full px-6 md:px-8 py-4 flex items-center justify-between transition-all duration-300">
+            <!-- Brand Identity / Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative w-12 h-12 flex items-center justify-center">
+                    <div class="absolute inset-0 border-2 border-gold-accent opacity-30 rounded-full animate-rotate-slow"></div>
+                    <div class="absolute inset-1.5 border border-dashed border-royal-500 opacity-40 rounded-full animate-rotate-slow" style="animation-direction: reverse;"></div>
+                    <span class="text-gold-accent font-bold text-xl relative z-10 font-arabic">أ</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-royal-500 font-black text-lg tracking-wide group-hover:text-gold-accent transition-colors duration-300" data-translate="brand_title">الرفيق الأمين</span>
+                    <span class="text-gold-accent/90 text-xxs font-semibold tracking-widest uppercase font-english" style="font-size: 0.65rem;">AL-AMEEN LUXURY TRAVEL</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 font-semibold">
+                <a href="#hero" class="text-slate-600 hover:text-royal-500 transition-all duration-300 text-sm hover:translate-y-[-1px]" data-translate="nav_home">الرئيسية</a>
+                <a href="#ai-booking" class="text-slate-600 hover:text-royal-500 transition-all duration-300 text-sm hover:translate-y-[-1px]" data-translate="nav_booking">الحجز الذكي</a>
+                <a href="#spiritual" class="text-slate-600 hover:text-royal-500 transition-all duration-300 text-sm hover:translate-y-[-1px]" data-translate="nav_spiritual">الرحلات الروحانية</a>
+                <a href="#destinations" class="text-slate-600 hover:text-royal-500 transition-all duration-300 text-sm hover:translate-y-[-1px]" data-translate="nav_destinations">الوجهات العالمية</a>
+                <a href="#ai-assistant" class="text-slate-600 hover:text-royal-500 transition-all duration-300 text-sm hover:translate-y-[-1px]" data-translate="nav_ai">المساعد الشخصي</a>
+                <a href="#horizon-club" class="text-slate-600 hover:text-royal-500 transition-all duration-300 text-sm hover:translate-y-[-1px]" data-translate="nav_offers">العروض الحصرية</a>
+            </div>
+
+            <!-- Global Action Controls (Language, Theme Indicator, Sound, and Call to Action) -->
+            <div class="flex items-center gap-3 md:gap-4">
+                <!-- Dual Language Toggle -->
+                <button onclick="toggleLanguage()" class="relative overflow-hidden glass-panel-light shadow-sm hover:border-gold-accent/50 transition-all duration-300 text-xs px-4 py-2 rounded-full text-royal-500 font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-earth-americas text-xs"></i>
+                    <span id="lang-text">EN</span>
+                </button>
+
+                <!-- Cinematic Soundscape Toggle -->
+                <button onclick="toggleAmbientSound()" id="sound-btn" class="glass-panel-light shadow-sm hover:border-gold-accent/50 text-slate-600 hover:text-royal-500 p-2.5 rounded-full transition-all duration-300 flex items-center justify-center" title="استمع للمؤثرات الصوتية الفاخرة">
+                    <i class="fa-solid fa-volume-xmark text-sm" id="sound-icon"></i>
+                </button>
+
+                <!-- Premium Luxury Call to Action with White Shimmer -->
+                <a href="#ai-booking" class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-royal-500 via-royal-600 to-royal-700 text-white font-bold px-6 py-3 rounded-full shadow-luxury btn-shimmer group">
+                    <span class="text-sm font-semibold" data-translate="nav_cta">احجز رحلتك</span>
+                    <i class="fa-solid fa-paper-plane text-xs transform group-hover:translate-x-[-3px] group-hover:translate-y-[-2px] transition-transform duration-300"></i>
+                </a>
+
+                <!-- Mobile Navigation Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden glass-panel-light shadow-sm hover:border-gold-accent text-royal-500 p-2.5 rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Modal Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl flex flex-col justify-center items-center gap-8 opacity-0 pointer-events-none transition-all duration-500">
+        <a href="#hero" onclick="toggleMobileMenu()" class="text-2xl text-slate-700 hover:text-royal-500 font-bold" data-translate="nav_home">الرئيسية</a>
+        <a href="#ai-booking" onclick="toggleMobileMenu()" class="text-2xl text-slate-700 hover:text-royal-500 font-bold" data-translate="nav_booking">الحجز الذكي</a>
+        <a href="#spiritual" onclick="toggleMobileMenu()" class="text-2xl text-slate-700 hover:text-royal-500 font-bold" data-translate="nav_spiritual">الرحلات الروحانية</a>
+        <a href="#destinations" onclick="toggleMobileMenu()" class="text-2xl text-slate-700 hover:text-royal-500 font-bold" data-translate="nav_destinations">الوجهات العالمية</a>
+        <a href="#ai-assistant" onclick="toggleMobileMenu()" class="text-2xl text-slate-700 hover:text-royal-500 font-bold" data-translate="nav_ai">المساعد الشخصي</a>
+        <a href="#horizon-club" onclick="toggleMobileMenu()" class="text-2xl text-slate-700 hover:text-royal-500 font-bold" data-translate="nav_offers">العروض الحصرية</a>
+        <a href="#ai-booking" onclick="toggleMobileMenu()" class="bg-royal-500 text-white font-bold px-8 py-4 rounded-full text-lg mt-4 btn-shimmer" data-translate="nav_cta">احجز رحلتك</a>
+    </div>
+
+    <!-- Cinematic Hero Experience -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-28 overflow-hidden scanline">
+        <!-- Visual Background elements representing spiritual-tech fusion -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Rotating Spiritual Geometric Overlay in background -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] max-w-[900px] max-h-[900px] border border-gold-accent/15 rounded-full animate-rotate-slow"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] border border-dashed border-royal-500/10 rounded-full animate-rotate-slow" style="animation-direction: reverse;"></div>
+            
+            <div class="absolute bottom-0 left-0 right-0 h-[40vh] bg-gradient-to-t from-navy-950 via-transparent to-transparent z-10"></div>
+            
+            <!-- Dynamic particles simulated -->
+            <div class="absolute top-20 left-10 w-2 h-2 bg-gold-accent rounded-full animate-ping opacity-70"></div>
+            <div class="absolute top-40 right-20 w-3 h-3 bg-royal-500 rounded-full animate-pulse opacity-50"></div>
+            <div class="absolute bottom-40 left-1/3 w-2 h-2 bg-gold-accent rounded-full animate-pulse opacity-60"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-20 py-12">
+            <!-- Headline and Main Pitch -->
+            <div class="lg:col-span-7 flex flex-col justify-center text-right animate-fade-in" id="hero-content">
+                <div class="inline-flex items-center gap-2 glass-panel-light shadow-sm py-1.5 px-4 rounded-full border border-gold-accent/30 w-max mb-6 self-start">
+                    <span class="w-2 h-2 rounded-full bg-gold-accent animate-pulse"></span>
+                    <span class="text-xs text-gold-700 tracking-wider uppercase font-bold" data-translate="hero_tag">مستقبل السفر والترحال الفاخر</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-slate-900 mb-6">
+                    <span data-translate="hero_title_1">رحلتك تبدأ من</span>
+                    <span class="text-gold-gradient block mt-2 drop-shadow-neon-gold" data-translate="hero_title_2">المستقبل اللامتناهي</span>
+                </h1>
+                
+                <p class="text-slate-600 text-lg md:text-xl font-medium mb-10 max-w-2xl leading-relaxed" data-translate="hero_desc">
+                    الرفيق الأمين ينسج لك تجارب سفر تتجاوز الآفاق المعتادة، مدمجة بالذكاء الاصطناعي الفائق وفخامة الطيران الخاص، لتوفير رحلات روحانية مقدسة وأسفار عالمية لا تُنسى.
+                </p>
+
+                <!-- Interactive Hero Buttons with White Shimmer -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#ai-booking" class="bg-gradient-to-r from-gold-accent to-gold-600 text-white font-black px-8 py-4 rounded-full shadow-luxury flex items-center gap-3 btn-shimmer">
+                        <span data-translate="hero_btn_book">ابدأ الحجز الفاخر</span>
+                        <i class="fa-solid fa-arrow-left transform transition-transform duration-300 group-hover:translate-x-[-4px]"></i>
+                    </a>
+                    
+                    <a href="#destinations" class="glass-panel-light text-slate-700 border border-slate-200 hover:border-gold-accent hover:text-gold-accent font-bold px-8 py-4 rounded-full shadow-sm transition-all duration-300 flex items-center gap-2 btn-shimmer">
+                        <span data-translate="hero_btn_explore">استكشف الوجهات</span>
+                        <i class="fa-solid fa-compass text-royal-500"></i>
+                    </a>
+
+                    <!-- Direct Elite Concierge Call via WhatsApp -->
+                    <a href="https://wa.me/201067010824?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D8%AE%D8%B5%D9%8A%D8%B5%20%D8%B1%D8%AD%D9%84%D8%A9%20%D9%81%D8%A7%D8%AE%D8%B1%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%81%D9%8A%D9%82%20%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D9%86" target="_blank" class="glass-panel-light text-emerald-600 border border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-50/50 px-6 py-4 rounded-full shadow-sm transition-all duration-300 flex items-center gap-2 btn-shimmer">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span data-translate="hero_btn_wa">المستشار الفوري</span>
+                    </a>
+                </div>
+
+                <!-- Floating Micro Statistics -->
+                <div class="grid grid-cols-3 gap-6 mt-16 border-t border-slate-200/60 pt-8 max-w-xl">
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-extrabold text-royal-500 font-english">99.8%</span>
+                        <span class="text-xs text-slate-500 font-bold mt-1" data-translate="stat_satisfaction">نسبة الرضا الملكية</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-extrabold text-royal-500 font-english">150+</span>
+                        <span class="text-xs text-slate-500 font-bold mt-1" data-translate="stat_destinations">وجهة خاصة حول العالم</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-3xl font-extrabold text-royal-500 font-english">10K+</span>
+                        <span class="text-xs text-slate-500 font-bold mt-1" data-translate="stat_pilgrims">خدمناهم في المشاعر</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Immersive 3D/CSS Graphic: Futuristic Luxury Aircraft in the Holy Skies -->
+            <div class="lg:col-span-5 relative flex items-center justify-center min-h-[400px]">
+                <div class="absolute w-full h-full bg-gradient-to-tr from-gold-accent/5 to-transparent rounded-3xl blur-3xl"></div>
+                
+                <!-- Main floating showcase container (Luxury White Glassmorphism) -->
+                <div class="relative glass-panel rounded-3xl p-6 w-full max-w-md animate-float border-gold-accent/30 shadow-luxury">
+                    <div class="absolute top-4 right-4 text-gold-accent/60 text-xs tracking-widest uppercase font-english font-bold">STREAMING INTERACTIVE HUD</div>
+                    
+                    <!-- Decorative Islamic geometric line art SVG -->
+                    <div class="w-full flex justify-center mb-6">
+                        <svg class="w-32 h-32 text-royal-500 opacity-90" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M50,5 L59,32 L88,23 L68,45 L91,64 L62,64 L68,91 L50,71 L32,91 L38,64 L9,64 L32,45 L12,23 L41,32 Z" />
+                            <circle cx="50" cy="50" r="10" stroke-dasharray="2,2" stroke="#D4AF37"/>
+                            <circle cx="50" cy="50" r="40" stroke="rgba(212,175,55,0.3)"/>
+                            <circle cx="50" cy="50" r="45" stroke="rgba(13,71,161,0.2)" stroke-dasharray="5,15"/>
+                        </svg>
+                    </div>
+
+                    <!-- Sleek holographic Vector of a Gulfstream G700 Superjet -->
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                            <div>
+                                <h3 class="text-slate-900 font-black" data-translate="hud_jet">طائرة الأجنحة الملكية</h3>
+                                <p class="text-xs text-slate-500" data-translate="hud_fleet">أسطول الألفية الخاصة</p>
+                            </div>
+                            <span class="bg-royal-50 text-royal-500 text-xs px-2.5 py-1 rounded border border-royal-500/20 font-english font-bold">G700 SUITE</span>
+                        </div>
+
+                        <!-- Jet Specs -->
+                        <div class="grid grid-cols-2 gap-4 text-xs">
+                            <div class="glass-panel-light p-2.5 rounded-xl border border-slate-100">
+                                <span class="text-slate-500 font-semibold block" data-translate="hud_altitude">الارتفاع الموصى به</span>
+                                <span class="text-royal-500 font-black mt-1 block font-english">51,000 FT</span>
+                            </div>
+                            <div class="glass-panel-light p-2.5 rounded-xl border border-slate-100">
+                                <span class="text-slate-500 font-semibold block" data-translate="hud_range">المدى الأقصى</span>
+                                <span class="text-royal-500 font-black mt-1 block font-english">7,700 NM</span>
+                            </div>
+                        </div>
+
+                        <!-- Real-time dynamic visual indicator -->
+                        <div class="bg-slate-50 rounded-xl p-3 border border-slate-100">
+                            <div class="flex justify-between text-xs text-slate-500 mb-1 font-semibold">
+                                <span data-translate="hud_route">المسار: القاهرة ➔ مكة المكرمة</span>
+                                <span class="text-gold-accent animate-pulse font-bold">● LIVE STATUS</span>
+                            </div>
+                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden relative">
+                                <div class="absolute left-0 top-0 h-full bg-gradient-to-r from-royal-500 to-gold-accent rounded-full animate-pulse" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Luxury Booking System -->
+    <section id="ai-booking" class="relative py-24 z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-accent uppercase font-extrabold text-xs tracking-widest block mb-3 font-english" data-translate="booking_sub">QUANTUM RESERVATION ENGINE</span>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900" data-translate="booking_title">نظام الحجز الذكي الذاتي</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-accent to-transparent mx-auto mt-4"></div>
+                <p class="text-slate-600 mt-6 font-medium" data-translate="booking_desc">حدد خياراتك فائقة الخصوصية، وسيقوم محرك الذكاء الاصطناعي بتصميم تفاصيل رحلتك مع تسعير فوري بالجنيه المصري.</p>
+            </div>
+
+            <!-- Booking Matrix Form -->
+            <div class="glass-panel rounded-3xl p-8 max-w-5xl mx-auto shadow-luxury border-gold-accent/30 bg-white/90">
+                <!-- Navigation Tabs inside booking -->
+                <div class="flex flex-wrap gap-2 border-b border-slate-100 pb-6 mb-8 justify-center">
+                    <button onclick="switchBookingTab('spiritual')" id="tab-spiritual" class="px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 bg-gold-accent text-white flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-kaaba"></i>
+                        <span data-translate="tab_spiritual">رحلات النخبة الروحانية (الحج والعمرة)</span>
+                    </button>
+                    <button onclick="switchBookingTab('private-jet')" id="tab-private-jet" class="px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 text-slate-600 hover:text-gold-accent hover:bg-slate-50 flex items-center gap-2">
+                        <i class="fa-solid fa-plane-departure"></i>
+                        <span data-translate="tab_jet">أجنحة الطيران الخاص</span>
+                    </button>
+                    <button onclick="switchBookingTab('escapes')" id="tab-escapes" class="px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 text-slate-600 hover:text-gold-accent hover:bg-slate-50 flex items-center gap-2">
+                        <i class="fa-solid fa-gem"></i>
+                        <span data-translate="tab_escapes">المنتجعات والملاذات السرية</span>
+                    </button>
+                </div>
+
+                <!-- Interactive Form Fields -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Field 1: Departure Hub -->
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" data-translate="label_origin">نقطة الانطلاق (مصر والعالم)</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-plane-departure absolute right-4 top-1/2 -translate-y-1/2 text-gold-accent"></i>
+                            <select id="origin-select" class="w-full bg-slate-50 border border-slate-200 hover:border-gold-accent focus:border-gold-accent text-slate-800 rounded-xl py-3.5 pr-11 pl-4 outline-none transition-all appearance-none cursor-pointer font-semibold shadow-sm">
+                                <option value="cai" data-translate="opt_cai">القاهرة - صالة الطيران الخاص VIP</option>
+                                <option value="ruh" data-translate="opt_ruh">الرياض - صالة الطيران الخاص</option>
+                                <option value="jed" data-translate="opt_jed">جدة - الصالة الملكية</option>
+                                <option value="dxb" data-translate="opt_dxb">دبي - مجلس كبار الشخصيات</option>
+                                <option value="lhr" data-translate="opt_lhr">لندن - مبنى هارفارد جت</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Field 2: Destination -->
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" data-translate="label_destination">الوجهة المقصودة ومستوى الإقامة</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-location-dot absolute right-4 top-1/2 -translate-y-1/2 text-gold-accent"></i>
+                            <select id="destination-select" onchange="calculateEliteEstimate()" class="w-full bg-slate-50 border border-slate-200 hover:border-gold-accent focus:border-gold-accent text-slate-800 rounded-xl py-3.5 pr-11 pl-4 outline-none transition-all appearance-none cursor-pointer font-semibold shadow-sm">
+                                <option value="makkah-royal" data-translate="opt_makkah_royal">مكة المكرمة (جناح ملكي مطل مباشرة على الكعبة)</option>
+                                <option value="makkah-executive" data-translate="opt_makkah_exec">مكة المكرمة (جناح تنفيذي بإطلالة كاملة)</option>
+                                <option value="madinah-elite" data-translate="opt_madinah">المدينة المنورة (جناح النخبة الروحاني)</option>
+                                <option value="alula" data-translate="opt_alula">العلا (فيلا صخرية خاصة مدمجة بالرفاهية)</option>
+                                <option value="maldives" data-translate="opt_maldives">المالديف (جزيرة خاصة بالكامل مع حراسة)</option>
+                                <option value="swiss-chalet" data-translate="opt_swiss">شاليه خاص في جبال الألب السويسرية</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Field 3: Tier Elite Level -->
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" data-translate="label_tier">فئة الخدمة والمرافقة الملكية</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-crown absolute right-4 top-1/2 -translate-y-1/2 text-gold-accent"></i>
+                            <select id="tier-select" onchange="calculateEliteEstimate()" class="w-full bg-slate-50 border border-slate-200 hover:border-gold-accent focus:border-gold-accent text-slate-800 rounded-xl py-3.5 pr-11 pl-4 outline-none transition-all appearance-none cursor-pointer font-semibold shadow-sm">
+                                <option value="sovereign" data-translate="opt_sovereign">السيادية (مستشار خاص، طائرة حصرية، رعاية طبية)</option>
+                                <option value="imperial" data-translate="opt_imperial">الإمبراطورية (طائرة خاصة مشتركة، فندق 7 نجوم، مرشد ديني)</option>
+                                <option value="first-class" data-translate="opt_first">الدرجة الأولى الفاخرة (خدمة VIP كاملة، فنادق الصف الأول)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Field 4: Departure Date -->
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" data-translate="label_date">تاريخ السفر المقدس أو العالمي</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-calendar absolute right-4 top-1/2 -translate-y-1/2 text-gold-accent"></i>
+                            <input type="date" id="travel-date" value="2026-06-15" class="w-full bg-slate-50 border border-slate-200 hover:border-gold-accent focus:border-gold-accent text-slate-800 rounded-xl py-3.5 pr-11 pl-4 outline-none transition-all cursor-pointer font-semibold shadow-sm">
+                        </div>
+                    </div>
+
+                    <!-- Field 5: Number of Sovereign Companions -->
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" data-translate="label_guests">عدد المسافرين المرافقين</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-users absolute right-4 top-1/2 -translate-y-1/2 text-gold-accent"></i>
+                            <select id="guests-select" onchange="calculateEliteEstimate()" class="w-full bg-slate-50 border border-slate-200 hover:border-gold-accent focus:border-gold-accent text-slate-800 rounded-xl py-3.5 pr-11 pl-4 outline-none transition-all appearance-none cursor-pointer font-semibold shadow-sm">
+                                <option value="1">1 (مستكشف منفرد)</option>
+                                <option value="2">2 (مرافقون مقربون)</option>
+                                <option value="4">4 (عائلة ملكية مصغرة)</option>
+                                <option value="8">8+ (وفد دبلوماسي أو عائلة كبيرة)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Field 6: Custom AI Add-ons -->
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" data-translate="label_addon">إضافات المستقبل المتاحة</label>
+                        <div class="relative">
+                            <i class="fa-solid fa-wand-magic-sparkles absolute right-4 top-1/2 -translate-y-1/2 text-gold-accent"></i>
+                            <select id="addon-select" onchange="calculateEliteEstimate()" class="w-full bg-slate-50 border border-slate-200 hover:border-gold-accent focus:border-gold-accent text-slate-800 rounded-xl py-3.5 pr-11 pl-4 outline-none transition-all appearance-none cursor-pointer font-semibold shadow-sm">
+                                <option value="ar-glasses" data-translate="opt_ar">نظارة واقع معزز دينية للإرشاد الذكي</option>
+                                <option value="heli-transfer" data-translate="opt_heli">هليكوبتر خاصة من المطار للمشاعر المقدسة</option>
+                                <option value="butler" data-translate="opt_butler">خادم شخصي متوفر على مدار الساعة</option>
+                                <option value="none" data-translate="opt_none">دون إضافات تكنولوجية حالياً</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instant Estimate & Submission HUD -->
+                <div class="mt-8 pt-8 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="text-right">
+                        <div class="text-xs text-slate-500 font-extrabold tracking-wider uppercase mb-1" data-translate="calc_title">تقدير الميزانية الفاخرة الفوري</div>
+                        <div class="flex items-baseline gap-2 flex-wrap">
+                            <span id="price-value" class="text-3xl font-black text-gold-accent font-english">380,000</span>
+                            <span class="text-sm font-bold text-slate-800 font-arabic" data-translate="currency">جنيه مصري</span>
+                            <span class="text-xs text-emerald-600 font-black bg-emerald-100/80 px-2.5 py-1 rounded border border-emerald-500/20 ml-2" data-translate="calc_all_inclusive">شامل كلياً</span>
+                            <span class="text-sm text-slate-700 font-black font-arabic tracking-wide" data-translate="calc_variance">*(تحت العجز والزيادة حسب تواصلك مع الشركة)</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-1" data-translate="calc_disclaimer">السعر يشمل الطائرة الخاصة، الجناح الملكي، والاستشارات السيادية والتأشيرات المباشرة.</p>
+                    </div>
+
+                    <!-- Dynamic Pulse CTA with Brilliant White Shimmer -->
+                    <button onclick="submitVIPReservation()" class="w-full md:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-royal-500 via-royal-600 to-royal-700 text-white font-black text-base shadow-luxury flex items-center justify-center gap-3 btn-shimmer">
+                        <i class="fa-solid fa-circle-check text-lg text-gold-accent"></i>
+                        <span data-translate="btn_confirm_booking">تأكيد الحجز وتخصيص الرحلة عبر واتساب</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Umrah & Hajj Experiences (Spiritual Luxury) -->
+    <section id="spiritual" class="relative py-24 bg-white/40">
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-1/4 left-0 w-96 h-96 ambient-glow-gold rounded-full opacity-30"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="text-right">
+                    <span class="text-gold-accent uppercase font-black text-xs tracking-widest block mb-2" data-translate="spiritual_sub">ملاذات الروح والمقدسات</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900" data-translate="spiritual_title">رحلات النخبة الدينية الروحانية</h2>
+                    <p class="text-slate-600 mt-4 max-w-2xl font-medium" data-translate="spiritual_desc">نوفر لك أرقى إقامة مطلة على المسجد الحرام والمسجد النبوي مع خدمات الطواف والمسعى الخاصة بإرشاد كبار العلماء.</p>
+                </div>
+                <!-- Mini floating HUD detail -->
+                <div class="glass-panel px-4 py-2.5 rounded-2xl flex items-center gap-3 self-start md:self-auto border-gold-accent/30 shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span class="text-xs text-slate-700 font-bold" data-translate="spiritual_slots">المقاعد الشاغرة لموسم الحج: <b class="text-gold-accent font-english">5</b> متبقية</span>
+                </div>
+            </div>
+
+            <!-- Bento-style interactive showcase for Spiritual Services -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Card 1: The Sovereign Umrah Package (Featuring Sacred Kaaba Image) -->
+                <div class="holo-card tilt-card glass-panel rounded-3xl overflow-hidden hover:border-gold-accent/50 flex flex-col justify-between min-h-[480px] shadow-luxury transition-all duration-300 group bg-white/85">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=800&q=80" alt="الكعبة المشرفة - مكة المكرمة" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/ffffff/d4af37?text=THE+HOLY+KAABA'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent"></div>
+                        <span class="absolute bottom-4 right-4 text-xs font-black text-white bg-royal-500 px-3 py-1 rounded-full shadow-sm" data-translate="badge_makkah">مكة المكرمة</span>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between tilt-card-inner">
+                        <div>
+                            <h3 class="text-2xl font-black text-slate-900 mb-3" data-translate="pkg1_title">عمرة النخبة السيادية</h3>
+                            <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-6" data-translate="pkg1_desc">
+                                أجنحة فندقية ملكية واسعة مواجهة للكعبة المشرفة مباشرة، مع تأشيرة الكترونية فورية، طيران خاص، ومرافقة مخصصة لتنفيذ المناسك بسلامة وراحة مطلقة.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-100 pt-4 mt-6 flex justify-between items-center">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-500 font-bold" data-translate="pkg_price_from">تبدأ الفخامة من</span>
+                                <span class="text-lg font-black text-royal-500 font-english">165,400 EGP</span>
+                            </div>
+                            <button onclick="selectPackage('عمرة النخبة السيادية', 165400)" class="text-xs font-black text-white bg-gold-accent hover:bg-gold-500 px-5 py-2.5 rounded-full transition-all btn-shimmer shadow-sm" data-translate="pkg_select">اختيار الرحلة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Royal Hajj Sanctuary (Featuring Al-Masjid an-Nabawi Image) -->
+                <div class="holo-card tilt-card glass-panel rounded-3xl overflow-hidden hover:border-gold-accent/50 flex flex-col justify-between min-h-[480px] shadow-luxury transition-all duration-300 group bg-white/85">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80" alt="المدينة المنورة - المسجد النبوي" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/ffffff/d4af37?text=AL-MADINAH'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent"></div>
+                        <span class="absolute bottom-4 right-4 text-xs font-black text-white bg-royal-500 px-3 py-1 rounded-full shadow-sm" data-translate="badge_madinah">المدينة المنورة</span>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between tilt-card-inner">
+                        <div>
+                            <h3 class="text-2xl font-black text-slate-900 mb-3" data-translate="pkg2_title">ملاذ الحج الملكي المعزز</h3>
+                            <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-6" data-translate="pkg2_desc">
+                                مخيمات ملكية خاصة ومكيفة بالكامل في منى وعرفات، صالة كبار شخصيات، أطباء خصوصيين على مدار الساعة، وتنقل بواسطة طائرات مروحية لتفادي الزحام.
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-100 pt-4 mt-6 flex justify-between items-center">
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-500 font-bold" data-translate="pkg_price_from">تبدأ الفخامة من</span>
+                                <span class="text-lg font-black text-royal-500 font-english">580,000 EGP</span>
+                            </div>
+                            <button onclick="selectPackage('ملاذ الحج الملكي المعزز', 580000)" class="text-xs font-black text-white bg-gold-accent hover:bg-gold-500 px-5 py-2.5 rounded-full transition-all btn-shimmer shadow-sm" data-translate="pkg_select">اختيار الرحلة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Spiritual Serenity & Audio Meditation Guidance (Corrected Spiritual Cosmic Image) -->
+                <div class="holo-card tilt-card glass-panel rounded-3xl overflow-hidden hover:border-gold-accent/50 flex flex-col justify-between min-h-[480px] shadow-luxury transition-all duration-300 group bg-white/85">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80" alt="المشاعر المقدسة والكون الروحي" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/800x600/ffffff/d4af37?text=SACRED+COSMIC+LIGHT'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent"></div>
+                        <span class="absolute bottom-4 right-4 text-xs font-black text-white bg-royal-500 px-3 py-1 rounded-full shadow-sm" data-translate="badge_technology">الواقع المعزز</span>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between tilt-card-inner">
+                        <div>
+                            <h3 class="text-2xl font-black text-slate-900 mb-3" data-translate="pkg3_title">الرفيق الروحي الرقمي</h3>
+                            <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-4" data-translate="pkg3_desc">
+                                تقنيتنا الفريدة من نوعها: نظام توجيه الواقع المعزز الذكي ونظارات النخبة التي تعرض المناسك والأدعية استناداً إلى موقعك الجغرافي الفعلي داخل المشاعر المقدسة بدقة متناهية.
+                            </p>
+                        </div>
+                        
+                        <!-- Mini interactive audio player mockup with simulated visualization -->
+                        <div class="bg-slate-50 rounded-2xl p-3 border border-slate-200">
+                            <div class="flex items-center gap-3">
+                                <button onclick="toggleAmbientSound()" class="w-10 h-10 rounded-full bg-royal-500 text-white flex items-center justify-center hover:scale-105 transition-all shadow-sm">
+                                    <i class="fa-solid fa-play ml-0.5"></i>
+                                </button>
+                                <div class="flex-1">
+                                    <span class="text-xs text-slate-800 font-bold block" data-translate="audio_spiritual_title">أدعية الطواف بصوت عذب</span>
+                                    <span class="text-[10px] text-royal-500 font-bold block" data-translate="audio_synced">توجيه ذكي متصل بالأقمار الصناعية</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Global Destinations -->
+    <section id="destinations" class="relative py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-accent uppercase font-black text-xs tracking-widest block mb-3 font-english" data-translate="dest_sub">THE GLOBE IN LUXURY</span>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900" data-translate="dest_title">الوجهات العالمية الساحرة</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-accent to-transparent mx-auto mt-4"></div>
+                <p class="text-slate-600 mt-6 font-medium" data-translate="dest_desc">نسافر بك إلى بقاع الأرض الأكثر فخامة وعزلة لتنعم بتجربة سفر ملكية متكاملة تلامس الروح والعقل.</p>
+            </div>
+
+            <!-- Bento Grid Destinations Showcase -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination 1: AlUla, Saudi Arabia -->
+                <div class="glass-panel rounded-3xl overflow-hidden hover:border-gold-accent/40 transition-all duration-300 group bg-white/80 shadow-luxury">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1621817478641-f70da57f1a3f?auto=format&fit=crop&w=800&q=80" alt="العلا" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/ffffff/d4af37?text=AL-ULA+EXCLUSIVE+RESORT'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/15 to-transparent"></div>
+                        <span class="absolute bottom-4 right-4 text-xs font-bold text-white bg-royal-500 px-3 py-1 rounded-full shadow-sm" data-translate="tag_heritage">تراث فاخر</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-slate-900 mb-2" data-translate="dest1_title">العلا - الملاذ الرملي الساحر</h3>
+                        <p class="text-slate-600 text-sm font-medium mb-4" data-translate="dest1_desc">عيشوا روعة التاريخ في فلل معلقة بين صخور العلا البديعة، مع رحلات طيران فوق معالم الحجر التاريخية.</p>
+                        <div class="flex justify-between items-center text-xs text-royal-500 font-bold pt-4 border-t border-slate-100">
+                            <span data-translate="dest_temp">درجة الحرارة المثالية: <b class="font-english text-gold-accent">24°C</b></span>
+                            <a href="#ai-booking" onclick="selectDestination('العلا')" class="hover:underline hover:text-gold-accent flex items-center gap-1">
+                                <span data-translate="dest_book_now">حجز فوري</span>
+                                <i class="fa-solid fa-arrow-left text-xxs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination 2: Private Maldives Islands -->
+                <div class="glass-panel rounded-3xl overflow-hidden hover:border-gold-accent/40 transition-all duration-300 group bg-white/80 shadow-luxury">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="المالديف" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/ffffff/d4af37?text=MALDIVES+PRIVATE+ISLAND'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/15 to-transparent"></div>
+                        <span class="absolute bottom-4 right-4 text-xs font-bold text-white bg-royal-500 px-3 py-1 rounded-full shadow-sm" data-translate="tag_beach">جزر معزولة</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-slate-900 mb-2" data-translate="dest2_title">المالديف - النقاء الاستوائي الحصري</h3>
+                        <p class="text-slate-600 text-sm font-medium mb-4" data-translate="dest2_desc">فيلا عائمة مجهزة بحوض سباحة لا متناهي وممر زجاجي خاص ومستوى مذهل من الفخامة التي لا تضاهى.</p>
+                        <div class="flex justify-between items-center text-xs text-royal-500 font-bold pt-4 border-t border-slate-100">
+                            <span data-translate="dest_temp2">درجة حرارة المياه: <b class="font-english text-gold-accent">28°C</b></span>
+                            <a href="#ai-booking" onclick="selectDestination('المالديف')" class="hover:underline hover:text-gold-accent flex items-center gap-1">
+                                <span data-translate="dest_book_now">حجز فوري</span>
+                                <i class="fa-solid fa-arrow-left text-xxs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destination 3: Swiss Alps Chalet -->
+                <div class="glass-panel rounded-3xl overflow-hidden hover:border-gold-accent/40 transition-all duration-300 group bg-white/80 shadow-luxury">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=800&q=80" alt="جبال الالب" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/ffffff/d4af37?text=SWISS+ALPS+CHALET'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/15 to-transparent"></div>
+                        <span class="absolute bottom-4 right-4 text-xs font-bold text-white bg-royal-500 px-3 py-1 rounded-full shadow-sm" data-translate="tag_alpine">قمم الثلج الراقية</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black text-slate-900 mb-2" data-translate="dest3_title">جبال الألب السويسرية - الصفاء الثلجي</h3>
+                        <p class="text-slate-600 text-sm font-medium mb-4" data-translate="dest3_desc">شاليه خشبي فخم مجهز بمنتجع صحي طبيعي، إطلالة بانورامية على قمم الثلج، ونقل خاص بطائرات الهليكوبتر.</p>
+                        <div class="flex justify-between items-center text-xs text-royal-500 font-bold pt-4 border-t border-slate-100">
+                            <span data-translate="dest_temp3">مستوى الثلوج: <b class="font-english text-gold-accent">ممتاز</b></span>
+                            <a href="#ai-booking" onclick="selectDestination('جبال الألب السويسرية')" class="hover:underline hover:text-gold-accent flex items-center gap-1">
+                                <span data-translate="dest_book_now">حجز فوري</span>
+                                <i class="fa-solid fa-arrow-left text-xxs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personalized AI Travel Assistant (Interactive) -->
+    <section id="ai-assistant" class="relative py-24 bg-white/40">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Info Section -->
+                <div class="lg:col-span-5 text-right">
+                    <span class="text-gold-accent uppercase font-black text-xs tracking-widest block mb-2" data-translate="ai_sub">ذكاء اصطناعي سيادي</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight" data-translate="ai_title">مخطط الرحلات الذكي الأقوى عالمياً</h2>
+                    <p class="text-slate-600 mt-6 leading-relaxed font-medium" data-translate="ai_desc">
+                        اختر هويتك السفرية المفضلة، وسيقوم المساعد التفاعلي الذكي "أمين" بصياغة مسار رحلة استثنائي فورياً ليناسب تطلعاتك الشخصية.
+                    </p>
+                    
+                    <!-- Archetype selectors -->
+                    <div class="mt-8 space-y-3">
+                        <button onclick="selectArchetype('spiritual')" class="w-full flex items-center justify-between p-4 rounded-2xl glass-panel hover:border-royal-500 transition-all duration-300 text-right group bg-white/90 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-royal-50 flex items-center justify-center text-royal-500 text-sm shadow-inner">
+                                    <i class="fa-solid fa-kaaba"></i>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm font-bold text-slate-800 block" data-translate="arch1_title">الباحث عن السكينة والروحانيات</span>
+                                    <span class="text-[10px] text-slate-500 font-bold" data-translate="arch1_desc">تركيز كامل على العبادة، الهدوء والتأمل</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-left text-xs text-royal-500 group-hover:translate-x-[-3px] transition-transform"></i>
+                        </button>
+
+                        <button onclick="selectArchetype('sovereign')" class="w-full flex items-center justify-between p-4 rounded-2xl glass-panel hover:border-royal-500 transition-all duration-300 text-right group bg-white/90 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-royal-50 flex items-center justify-center text-royal-500 text-sm shadow-inner">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm font-bold text-slate-800 block" data-translate="arch2_title">المستكشف السيادي الحصري</span>
+                                    <span class="text-[10px] text-slate-500 font-bold" data-translate="arch2_desc">طيران خاص، خصوصية مطلقة، تجارب لا تتاح للعامة</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-left text-xs text-royal-500 group-hover:translate-x-[-3px] transition-transform"></i>
+                        </button>
+
+                        <button onclick="selectArchetype('wellbeing')" class="w-full flex items-center justify-between p-4 rounded-2xl glass-panel hover:border-royal-500 transition-all duration-300 text-right group bg-white/90 shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-royal-50 flex items-center justify-center text-royal-500 text-sm shadow-inner">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-sm font-bold text-slate-800 block" data-translate="arch3_title">طالب الصحة والاستجمام الفاخر</span>
+                                    <span class="text-[10px] text-slate-500 font-bold" data-translate="arch3_desc">منتجعات صحية عالمية سرية للتجديد التام</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-left text-xs text-royal-500 group-hover:translate-x-[-3px] transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Mock AI Intermediary GUI (Luxury White Styling) -->
+                <div class="lg:col-span-7">
+                    <div class="glass-panel rounded-3xl overflow-hidden shadow-luxury border-gold-accent/30 bg-white relative">
+                        <!-- Header of AI interface -->
+                        <div class="bg-slate-50 px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="relative w-10 h-10 rounded-full bg-royal-50 flex items-center justify-center border border-royal-100">
+                                    <span class="text-royal-500 font-bold text-sm">أ</span>
+                                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white"></span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-slate-900 font-black text-sm block" data-translate="bot_name">أمين - المساعد السيادي الفاخر</span>
+                                    <span class="text-[9px] text-emerald-600 font-black uppercase tracking-widest" data-translate="bot_online">متصل وجاهز للابتكار</span>
+                                </div>
+                            </div>
+                            <div class="text-xs text-royal-500 font-english font-bold bg-royal-50/80 px-2.5 py-1 rounded">GPT-5 QUANTUM ENGINE</div>
+                        </div>
+
+                        <!-- Chat Area & Output -->
+                        <div class="p-6 space-y-6 min-h-[350px] max-h-[450px] overflow-y-auto" id="ai-chat-box">
+                            <!-- Bot Welcome -->
+                            <div class="flex gap-4 items-start text-right">
+                                <div class="w-8 h-8 rounded-full bg-royal-100 flex items-center justify-center text-xs text-royal-500 flex-shrink-0 border border-royal-200 font-bold">أ</div>
+                                <div class="glass-panel-light p-4 rounded-2xl rounded-tr-none max-w-[85%] border-slate-100 bg-slate-50">
+                                    <p class="text-sm text-slate-800 font-semibold leading-relaxed" data-translate="bot_welcome">
+                                        مرحباً بك في آفاق السفر اللامتناهي. أنا رفيقك الرقمي الحصري "أمين". اختر هويتك السفرية أو اكتب ما يجول بخاطرك، وسأقوم بهندسة مسار رحلتك فورياً وبأعلى مستويات الدقة والفخامة بالجنيه المصري.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chat input simulator -->
+                        <div class="p-4 bg-slate-50/80 border-t border-slate-100 flex items-center gap-3">
+                            <input type="text" id="ai-custom-input" placeholder="اكتب رغباتك الخاصة بالسفر الفاخر..." class="flex-1 bg-white border border-slate-200 focus:border-royal-500 text-slate-800 placeholder-slate-400 rounded-xl px-4 py-3 text-sm outline-none transition-all text-right shadow-inner">
+                            <button onclick="sendCustomAiMessage()" class="bg-royal-500 hover:bg-royal-600 text-white w-11 h-11 rounded-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all flex-shrink-0 btn-shimmer shadow-sm">
+                                <i class="fa-solid fa-paper-plane transform rotate-180"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Horizon Club (Animated Exclusive Offers) -->
+    <section id="horizon-club" class="relative py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Virtual holographic card container -->
+                <div class="lg:col-span-5 flex justify-center order-2 lg:order-1">
+                    <div class="w-full max-w-[360px] aspect-[1.586/1] rounded-2xl p-6 glass-panel border-gold-accent/40 relative overflow-hidden shadow-luxury holo-card flex flex-col justify-between bg-white/90">
+                        <!-- Glossy reflections and watermarks -->
+                        <div class="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-gold-accent/10 to-transparent rounded-full blur-xl pointer-events-none"></div>
+                        <div class="absolute bottom-4 left-4 text-[8px] text-slate-400 tracking-widest font-english">AL-AMEEN QUANTUM NET</div>
+                        
+                        <div class="flex justify-between items-start">
+                            <div class="flex flex-col">
+                                <span class="text-royal-500 font-black text-sm tracking-widest uppercase font-english">THE HORIZON CLUB</span>
+                                <span class="text-gold-accent text-[8px] tracking-widest uppercase font-english font-bold">SOVEREIGN PRIVATE MEMBERSHIP</span>
+                            </div>
+                            <!-- Custom SVG Golden Chip -->
+                            <div class="w-10 h-8 bg-gradient-to-br from-gold-accent to-gold-400 rounded-lg flex flex-col justify-between p-1.5 border border-gold-300/30 opacity-90 shadow-md">
+                                <div class="grid grid-cols-3 gap-0.5 h-full w-full">
+                                    <div class="border border-white/20 rounded-sm"></div>
+                                    <div class="border border-white/20 rounded-sm"></div>
+                                    <div class="border border-white/20 rounded-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-slate-500 text-[9px] block uppercase tracking-widest font-english mb-1 font-bold">MEMBER IDENTITY</span>
+                            <span class="text-slate-900 font-black text-sm tracking-wide block font-english">HRH AMIR BIN KHALID AL-SAUD</span>
+                            <span class="text-gold-accent font-english text-[11px] font-bold tracking-widest block mt-2">ID: AA-8899-7700</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copywriting Section -->
+                <div class="lg:col-span-7 text-right order-1 lg:order-2">
+                    <span class="text-gold-accent uppercase font-black text-xs tracking-widest block mb-2" data-translate="club_sub">عضوية الآفاق الاستثنائية</span>
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900" data-translate="club_title">نادي الأفق المحدود للنخبة السيادية</h2>
+                    <p class="text-slate-600 mt-6 leading-relaxed font-semibold text-base" data-translate="club_desc">
+                        عضوية الأفق هي مفتاحكم الشخصي لعالم لا حدود له من الرفاهية والخدمات الملكية. استكشفوا المزايا الحصرية التي تم تنسيقها بعناية فائقة وتخصيصها لشخصكم الكريم فقط.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-royal-50 flex items-center justify-center text-royal-500 flex-shrink-0 mt-1 shadow-inner">
+                                <i class="fa-solid fa-helicopter"></i>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="text-slate-950 font-black text-sm" data-translate="club_feat1">تنقل هليكوبتر مجاني</h4>
+                                <p class="text-xs text-slate-500 font-semibold mt-1" data-translate="club_feat1_desc">نقل فوري من المطار الدولي لأجنحتكم السكنية بمكة مجاناً.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-full bg-royal-50 flex items-center justify-center text-royal-500 flex-shrink-0 mt-1 shadow-inner">
+                                <i class="fa-solid fa-hotel"></i>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="text-slate-950 font-black text-sm" data-translate="club_feat2">ترقيات أجنحة ملكية فورية</h4>
+                                <p class="text-xs text-slate-500 font-semibold mt-1" data-translate="club_feat2_desc">ترقية مجانية ومباشرة لأرقى الأجنحة المتوفرة دون تكاليف إضافية.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emotional Customer Stories (Testimonials) -->
+    <section class="relative py-24 bg-white/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-accent uppercase font-black text-xs tracking-widest block mb-3 font-english" data-translate="story_sub">شغف وارتياح روحي</span>
+                <h2 class="text-3xl md:text-5xl font-black text-slate-900" data-translate="story_title">قالوا عن الرفيق الأمين</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-gold-accent to-transparent mx-auto mt-4"></div>
+            </div>
+
+            <!-- Scroll Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-3xl border-gold-accent/20 flex flex-col justify-between bg-white shadow-luxury">
+                    <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-6 italic" data-translate="story1_text">
+                        "لم تكن مجرد عمرة، بل كانت رحلة تنويرية لروحي بفضل الاهتمام المذهل بكافة التفاصيل الدقيقة والسكينة التي أحاطونا بها منذ اللحظة الأولى."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-royal-50 border border-royal-200 flex items-center justify-center text-royal-500 font-bold shadow-sm">ع</div>
+                        <div>
+                            <span class="text-slate-900 font-black text-sm block" data-translate="story1_author">معالي د. عبد الرحمن بن فهد</span>
+                            <span class="text-[10px] text-slate-500 font-bold" data-translate="story1_title">دبلوماسي سعودي سابق</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border-gold-accent/20 flex flex-col justify-between bg-white shadow-luxury">
+                    <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-6 italic" data-translate="story2_text">
+                        "الدمج السلس بين التكنولوجيا الرقمية الفائقة والمرافقة الشخصية الودية يعكس بحق التطور الفاخر الذي كنا نتمناه دوماً في قطاع السياحة."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-royal-50 border border-royal-200 flex items-center justify-center text-royal-500 font-bold shadow-sm">ه</div>
+                        <div>
+                            <span class="text-slate-900 font-black text-sm block" data-translate="story2_author">صاحبة السمو الشيخة هنوف آل ثاني</span>
+                            <span class="text-[10px] text-slate-500 font-bold" data-translate="story2_title">رائدة أعمال</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-3xl border-gold-accent/20 flex flex-col justify-between bg-white shadow-luxury">
+                    <p class="text-slate-600 text-sm font-semibold leading-relaxed mb-6 italic" data-translate="story3_text">
+                        "كل لحظة معهم تمثل قمة الترف والنقاء الإنساني. لقد غير الرفيق الأمين مفهوم السفر الفخم من الشرق الأوسط بشكل كامل."
+                    </p>
+                    <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-royal-50 border border-royal-200 flex items-center justify-center text-royal-500 font-bold shadow-sm">ج</div>
+                        <div>
+                            <span class="text-slate-900 font-black text-sm block" data-translate="story3_author">السيد جونثان ماركوز</span>
+                            <span class="text-[10px] text-slate-500 font-bold" data-translate="story3_title">مستشار استثماري عالمي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct Concierge Sim Box -->
+    <section class="relative py-16 bg-gradient-to-t from-navy-950 to-transparent z-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="glass-panel rounded-3xl p-8 border-emerald-500/30 shadow-luxury text-center bg-white">
+                <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-4 border border-emerald-200 shadow-inner">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <h3 class="text-2xl font-black text-slate-900" data-translate="wa_title">مستشار الرفاهية المباشر على واتساب</h3>
+                <p class="text-slate-600 mt-2 max-w-xl mx-auto text-sm font-semibold" data-translate="wa_desc">هل تفضل التحدث البشري المباشر لتخصيص رحلتك؟ تواصل فوراً بلمسة واحدة مع مستشار السفر الشخصي للنخبة على مدار الساعة.</p>
+                <a href="https://wa.me/201067010824?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D8%AE%D8%B5%D9%8A%D8%B5%20%D8%B1%D8%AD%D9%84%D8%A9%20%D9%81%D8%A7%D8%AE%D8%B1%D8%A9%20%D9%85%D9%86%20%D8%A7%D9%84%D8%B1%D9%81%D9%8A%D9%82%20%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D9%86" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-all mt-6 btn-shimmer">
+                    <span data-translate="wa_btn">تواصل الآن مباشرة (01067010824)</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divine Luxury Footer Experience -->
+    <footer class="relative bg-white border-t border-gold-accent/30 pt-20 pb-10 z-20">
+        <div class="absolute bottom-0 right-0 w-96 h-96 ambient-glow-gold rounded-full opacity-20 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-slate-100">
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="relative w-10 h-10 flex items-center justify-center">
+                        <div class="absolute inset-0 border border-gold-accent opacity-40 rounded-lg animate-rotate-slow"></div>
+                        <span class="text-gold-accent font-bold text-lg">أ</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-royal-500 font-black text-base" data-translate="brand_title">الرفيق الأمين</span>
+                        <span class="text-gold-accent/90 text-[8px] tracking-widest uppercase font-english font-bold">AL-AMEEN LUXURY TRAVEL</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 leading-relaxed font-semibold" data-translate="footer_desc">
+                    الرفيق الأمين للسياحة والسفر تذكرة عبوركم لمستقبل التنقل اللامتناهي برؤية متجددة تجمع بين الروحانية والتقدم العلمي الفائق.
+                </p>
+                <div class="flex items-center gap-3 text-royal-500 pt-2">
+                    <a href="#" class="hover:text-gold-accent transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-accent transition-colors"><i class="fa-brands fa-twitter text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-accent transition-colors"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-accent transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- Fast Navigation Links -->
+            <div>
+                <h4 class="text-royal-500 font-black text-sm mb-6 uppercase tracking-wider text-gold-accent" data-translate="footer_nav">روابط رئيسية</h4>
+                <ul class="space-y-3 text-xs text-slate-500 font-bold">
+                    <li><a href="#hero" class="hover:text-gold-accent transition-colors" data-translate="nav_home">الرئيسية</a></li>
+                    <li><a href="#ai-booking" class="hover:text-gold-accent transition-colors" data-translate="nav_booking">الحجز الذكي</a></li>
+                    <li><a href="#spiritual" class="hover:text-gold-accent transition-colors" data-translate="nav_spiritual">الرحلات الروحانية</a></li>
+                    <li><a href="#destinations" class="hover:text-gold-accent transition-colors" data-translate="nav_destinations">الوجهات العالمية</a></li>
+                    <li><a href="#ai-assistant" class="hover:text-gold-accent transition-colors" data-translate="nav_ai">المساعد الشخصي</a></li>
+                </ul>
+            </div>
+
+            <!-- Exclusive Hubs -->
+            <div>
+                <h4 class="text-royal-500 font-black text-sm mb-6 uppercase tracking-wider text-gold-accent" data-translate="footer_hubs">مكاتبنا التنفيذية</h4>
+                <ul class="space-y-3 text-xs text-slate-500 font-semibold">
+                    <li data-translate="hub_riyadh">الرياض - برج الفيصلية الصالة التنفيذية</li>
+                    <li data-translate="hub_makkah">مكة المكرمة - برج ريفال بلازا كبار الشخصيات</li>
+                    <li data-translate="hub_dubai">دبي - مركز دبي المالي العالمي</li>
+                    <li data-translate="hub_cairo">القاهرة - جاردن سيتي، صالة النخبة</li>
+                </ul>
+            </div>
+
+            <!-- Subscription Newsletter -->
+            <div>
+                <h4 class="text-royal-500 font-black text-sm mb-6 uppercase tracking-wider text-gold-accent" data-translate="newsletter_title">النشرة السيادية الخاصة</h4>
+                <p class="text-xs text-slate-500 leading-relaxed mb-4 font-semibold" data-translate="newsletter_desc">اشترك لتلقي دعوات السفر الخاصة والعروض المغلقة للنخبة فقط.</p>
+                <form onsubmit="subscribeNewsletter(event)" class="space-y-2">
+                    <input type="email" id="newsletter-email" placeholder="بريدك الإلكتروني الملكي" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 placeholder-slate-400 rounded-xl px-4 py-3 text-xs outline-none focus:border-royal-500 transition-all text-right shadow-inner">
+                    <button type="submit" class="w-full bg-royal-500 hover:bg-royal-600 text-white font-bold text-xs py-3 rounded-xl transition-all btn-shimmer" data-translate="newsletter_btn">اشتراك النخبة</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Copyrights and System parameters -->
+        <div class="max-w-7xl mx-auto px-6 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xxs text-slate-500">
+            <span data-translate="footer_copy">حقوق الطبع محفوظة © 2026 الرفيق الأمين للسياحة والسفر. جميع الحقوق محفوظة لجهة السيادة.</span>
+            <div class="flex gap-4">
+                <span class="font-english">LATENCY: <b class="text-royal-500">0.01ms</b></span>
+                <span class="font-english">AI MATRIX: <b class="text-royal-500">ACTIVE</b></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Web Audio, Translation & Booking Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tiltCards = document.querySelectorAll('.tilt-card');
+            
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within element
+                    const y = e.clientY - rect.top;  // y position within element
+                    
+                    const xc = rect.width / 2;
+                    const yc = rect.height / 2;
+                    
+                    // Smooth subtle rotational dynamics for hyper-premium feel (max 8 degrees)
+                    const angleX = (yc - y) / 15;
+                    const angleY = (x - xc) / 15;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
+                    card.style.boxShadow = '0 30px 60px -15px rgba(212, 175, 55, 0.25)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                    card.style.boxShadow = '';
+                });
+            });
+        });
+
+        const translations = {
+            ar: {
+                brand_title: "الرفيق الأمين",
+                nav_home: "الرئيسية",
+                nav_booking: "الحجز الذكي",
+                nav_spiritual: "الرحلات الروحانية",
+                nav_destinations: "الوجهات العالمية",
+                nav_ai: "المساعد الشخصي",
+                nav_offers: "العروض الحصرية",
+                nav_cta: "احجز رحلتك",
+                hero_tag: "مستقبل السفر والترحال الفاخر",
+                hero_title_1: "رحلتك تبدأ من",
+                hero_title_2: "المستقبل اللامتناهي",
+                hero_desc: "الرفيق الأمين ينسج لك تجارب سفر تتجاوز الآفاق المعتادة، مدمجة بالذكاء الاصطناعي الفائق وفخامة الطيران الخاص، لتوفير رحلات روحانية مقدسة وأسفار عالمية لا تُنسى.",
+                hero_btn_book: "ابدأ الحجز الفاخر",
+                hero_btn_explore: "استكشف الوجهات",
+                hero_btn_wa: "المستشار الفوري",
+                stat_satisfaction: "نسبة الرضا الملكية",
+                stat_destinations: "وجهة خاصة حول العالم",
+                stat_pilgrims: "خدمناهم في المشاعر",
+                hud_jet: "طائرة الأجنحة الملكية",
+                hud_fleet: "أسطول الألفية الخاصة",
+                hud_altitude: "الارتفاع الموصى به",
+                hud_range: "المدى الأقصى",
+                hud_route: "المسار: القاهرة ➔ مكة المكرمة",
+                booking_sub: "محرك الحجز الكمي والذكي",
+                booking_title: "نظام الحجز الذكي الذاتي",
+                booking_desc: "حدد خياراتك فائقة الخصوصية، وسيقوم محرك الذكاء الاصطناعي بتصميم تفاصيل رحلتك مع تسعير فوري بالجنيه المصري.",
+                tab_spiritual: "رحلات النخبة الروحانية (الحج والعمرة)",
+                tab_jet: "أجنحة الطيران الخاص",
+                tab_escapes: "المنتجعات والملاذات السرية",
+                label_origin: "نقطة الانطلاق (مصر والعالم)",
+                opt_cai: "القاهرة - صالة الطيران الخاص VIP",
+                opt_ruh: "الرياض - صالة الطيران الخاص",
+                opt_jed: "جدة - الصالة الملكية",
+                opt_dxb: "دبي - مجلس كبار الشخصيات",
+                opt_lhr: "لندن - مبنى هارفارد جت",
+                label_destination: "الوجهة المقصودة ومستوى الإقامة",
+                opt_makkah_royal: "مكة المكرمة (جناح ملكي مطل مباشرة على الكعبة)",
+                opt_makkah_exec: "مكة المكرمة (جناح تنفيذي بإطلالة كاملة)",
+                opt_madinah: "المدينة المنورة (جناح النخبة الروحاني)",
+                opt_alula: "العلا (فيلا صخرية خاصة مدمجة بالرفاهية)",
+                opt_maldives: "المالديف (جزيرة خاصة بالكامل مع حراسة)",
+                opt_swiss: "شاليه خاص في جبال الألب السويسرية",
+                label_tier: "فئة الخدمة والمرافقة الملكية",
+                opt_sovereign: "السيادية (مستشار خاص، طائرة حصرية، رعاية طبية)",
+                opt_imperial: "الإمبراطورية (طائرة خاصة مشتركة، فندق 7 نجوم، مرشد ديني)",
+                opt_first: "الدرجة الأولى الفاخرة (خدمة VIP كاملة، فنادق الصف الأول)",
+                label_date: "تاريخ السفر المقدس أو العالمي",
+                label_guests: "عدد المسافرين المرافقين",
+                label_addon: "إضافات المستقبل المتاحة",
+                opt_ar: "نظارة واقع معزز دينية للإرشاد الذكي",
+                opt_heli: "هليكوبتر خاصة من المطار للمشاعر المقدسة",
+                opt_butler: "خادم شخصي متوفر على مدار الساعة",
+                opt_none: "دون إضافات تكنولوجية حالياً",
+                calc_title: "تقدير الميزانية الفاخرة الفوري",
+                currency: "جنيه مصري",
+                calc_all_inclusive: "شامل كلياً",
+                calc_variance: "*(تحت العجز والزيادة حسب تواصلك مع الشركة)",
+                calc_disclaimer: "السعر يشمل الطائرة الخاصة، الجناح الملكي، والاستشارات السيادية والتأشيرات المباشرة.",
+                btn_confirm_booking: "تأكيد الحجز وتخصيص الرحلة عبر واتساب",
+                spiritual_sub: "ملاذات الروح والمقدسات",
+                spiritual_title: "رحلات النخبة الدينية الروحانية",
+                spiritual_desc: "نوفر لك أرقى إقامة مطلة على المسجد الحرام والمسجد النبوي مع خدمات الطواف والمسعى الخاصة بإرشاد كبار العلماء.",
+                spiritual_slots: "المقاعد الشاغرة لموسم الحج: <b class='text-gold-accent font-english'>5</b> متبقية",
+                badge_makkah: "مكة المكرمة",
+                badge_madinah: "المدينة المنورة",
+                badge_technology: "الواقع المعزز",
+                pkg1_title: "عمرة النخبة السيادية",
+                pkg1_desc: "أجنحة فندقية ملكية واسعة مواجهة للكعبة المشرفة مباشرة، مع تأشيرة الكترونية فورية، طيران خاص، ومرافقة مخصصة لتنفيذ المناسك بسلامة وراحة مطلقة.",
+                pkg2_title: "ملاذ الحج الملكي المعزز",
+                pkg2_desc: "مخيمات ملكية خاصة ومكيفة بالكامل في منى وعرفات، صالة كبار شخصيات، أطباء خصوصيين على مدار الساعة، وتنقل بواسطة طائرات مروحية لتفادي الزحام.",
+                pkg3_title: "الرفيق الروحي الرقمي",
+                pkg3_desc: "تقنيتنا الفريدة من نوعها: نظام توجيه الواقع المعزز الذكي ونظارات النخبة التي تعرض المناسك والأدعية استناداً إلى موقعك الجغرافي الفعلي داخل المشاعر المقدسة بدقة متناهية.",
+                pkg_price_from: "تبدأ الفخامة من",
+                pkg_select: "اختيار الرحلة",
+                audio_spiritual_title: "أدعية الطواف بصوت عذب",
+                audio_synced: "توجيه ذكي متصل بالأقمار الصناعية",
+                dest_sub: "العالم تحت تصرفكم بنمط ملكي",
+                dest_title: "الوجهات العالمية الساحرة",
+                dest_desc: "نسافر بك إلى بقاع الأرض الأكثر فخامة وعزلة لتنعم بتجربة سفر ملكية متكاملة تلامس الروح والعقل.",
+                tag_heritage: "تراث فاخر",
+                tag_beach: "جزر معزولة",
+                tag_alpine: "قمم الثلج الراقية",
+                dest1_title: "العلا - الملاذ الرملي الساحر",
+                dest1_desc: "عيشوا روعة التاريخ في فلل معلقة بين صخور العلا البديعة، مع رحلات طيران فوق معالم الحجر التاريخية.",
+                dest2_title: "المالديف - النقاء الاستوائي الحصري",
+                dest2_desc: "فيلا عائمة مجهزة بحوض سباحة لا متناهي وممر زجاجي خاص ومستوى مذهل من الفخامة التي لا تضاهى.",
+                dest3_title: "جبال الألب السويسرية - الصفاء الثلجي",
+                dest3_desc: "شاليه خشبي فخم مجهز بمنتجع صحي طبيعي، إطلالة بانورامية على قمم الثلج، ونقل خاص بطائرات الهليكوبتر.",
+                dest_temp: "درجة الحرارة المثالية: <b class='font-english text-gold-accent'>24°C</b>",
+                dest_temp2: "درجة حرارة المياه: <b class='font-english text-gold-accent'>28°C</b>",
+                dest_temp3: "مستوى الثلوج: <b class='font-english text-gold-accent'>ممتاز</b>",
+                dest_book_now: "حجز فوري",
+                ai_sub: "ذكاء اصطناعي سيادي",
+                ai_title: "مخطط الرحلات الذكي الأقوى عالمياً",
+                ai_desc: "اختر هويتك السفرية المفضلة، وسيقوم المساعد التفاعلي الذكي 'أمين' بصياغة مسار رحلة استثنائي فورياً ليناسب تطلعاتك الشخصية.",
+                arch1_title: "الباحث عن السكينة والروحانيات",
+                arch1_desc: "تركيز كامل على العبادة، الهدوء والتأمل",
+                arch2_title: "المستكشف السيادي الحصري",
+                arch2_desc: "طيران خاص، خصوصية مطلقة، تجارب لا تتاح للعامة",
+                arch3_title: "طالب الصحة والاستجمام الفاخر",
+                arch3_desc: "منتجعات صحية عالمية سرية للتجديد التام",
+                bot_name: "أمين - المساعد السيادي الفاخر",
+                bot_online: "متصل وجاهز للابتكار",
+                bot_welcome: "مرحباً بك في آفاق السفر اللامتناهي. أنا رفيقك الرقمي الحصري 'أمين'. اختر هويتك السفرية أو اكتب ما يجول بخاطرك، وسأقوم بهندسة مسار رحلتك فورياً وبأعلى مستويات الدقة والفخامة بالجنيه المصري.",
+                club_sub: "عضوية الآفاق الاستثنائية",
+                club_title: "نادي الأفق المحدود للنخبة السيادية",
+                club_desc: "عضوية الأفق هي مفتاحكم الشخصي لعالم لا حدود له من الرفاهية والخدمات الملكية. استكشفوا المزايا الحصرية التي تم تنسيقها بعناية فائقة وتخصيصها لشخصكم الكريم فقط.",
+                club_feat1: "تنقل هليكوبتر مجاني",
+                club_feat1_desc: "نقل فوري من المطار الدولي لأجنحتكم السكنية بمكة مجاناً.",
+                club_feat2: "ترقيات أجنحة ملكية فورية",
+                club_feat2_desc: "ترقية مجانية ومباشرة لأرقى الأجنحة المتوفرة دون تكاليف إضافية.",
+                story_sub: "شغف وارتياح روحي",
+                story_title: "قالوا عن الرفيق الأمين",
+                story1_text: "\"لم تكن مجرد عمرة، بل كانت رحلة تنويرية لروحي بفضل الاهتمام المذهل بكافة التفاصيل الدقيقة والسكينة التي أحاطونا بها منذ اللحظة الأولى.\"",
+                story1_author: "معالي د. عبد الرحمن بن فهد",
+                story1_title: "دبلوماسي سعودي سابق",
+                story2_text: "\"الدمج السلس بين التكنولوجيا الرقمية الفائقة والمرافقة الشخصية الودية يعكس بحق التطور الفاخر الذي كنا نتمناه دوماً في قطاع السياحة.\"",
+                story2_author: "صاحبة السمو الشيخة هنوف آل ثاني",
+                story2_title: "رائدة أعمال",
+                story3_text: "\"كل لحظة معهم تمثل قمة الترف والنقاء الإنساني. لقد غير الرفيق الأمين مفهوم السفر الفخم من الشرق الأوسط بشكل كامل.\"",
+                story3_author: "السيد جونثان ماركوز",
+                story3_title: "مستشار استثماري عالمي",
+                wa_title: "مستشار الرفاهية المباشر على واتساب",
+                wa_desc: "هل تفضل التحدث البشري المباشر لتخصيص رحلتك؟ تواصل فوراً بلمسة واحدة مع مستشار السفر الشخصي للنخبة على مدار الساعة.",
+                wa_btn: "تواصل الآن مباشرة (01067010824)",
+                footer_desc: "الرفيق الأمين للسياحة والسفر تذكرة عبوركم لمستقبل التنقل اللامتناهي برؤية متجددة تجمع بين الروحانية والتقدم العلمي الفائق.",
+                footer_nav: "روابط رئيسية",
+                footer_hubs: "مكاتبنا التنفيذية",
+                hub_riyadh: "الرياض - برج الفيصلية الصالة التنفيذية",
+                hub_makkah: "مكة المكرمة - برج ريفال بلازا كبار الشخصيات",
+                hub_dubai: "دبي - مركز دبي المالي العالمي",
+                hub_cairo: "القاهرة - جاردن سيتي، صالة النخبة",
+                newsletter_title: "النشرة السيادية الخاصة",
+                newsletter_desc: "اشترك لتلقي دعوات السفر الخاصة والعروض المغلقة للنخبة فقط.",
+                newsletter_btn: "اشتراك النخبة",
+                footer_copy: "حقوق الطبع محفوظة © 2026 الرفيق الأمين للسياحة والسفر. جميع الحقوق محفوظة لجهة السيادة."
+            },
+            en: {
+                brand_title: "Al-Ameen",
+                nav_home: "Home",
+                nav_booking: "Smart Booking",
+                nav_spiritual: "Spiritual Escapes",
+                nav_destinations: "Global Destinations",
+                nav_ai: "AI Assistant",
+                nav_offers: "Exclusive Offers",
+                nav_cta: "Book Journey",
+                hero_tag: "Future of Sovereign Travel & Aviation",
+                hero_title_1: "Your Flight Begins in",
+                hero_title_2: "Infinite Sovereignty",
+                hero_desc: "Al-Ameen weaves exceptional, hyper-curated travel experiences combined with state-of-the-art AI technology, private military-grade security, and spiritual elevation to create the world's most exquisite sanctuaries.",
+                hero_btn_book: "Launch VIP Booking",
+                hero_btn_explore: "Discover Realms",
+                hero_btn_wa: "Direct Advisor",
+                stat_satisfaction: "Sovereign Satisfaction Rate",
+                stat_destinations: "Elite Dedicated Destinations",
+                stat_pilgrims: "Served in Holy Sanctuaries",
+                hud_jet: "Royal Wings Flagship",
+                hud_fleet: "Millennium Private Jet Fleet",
+                hud_altitude: "Cruising Altitude",
+                hud_range: "Maximum Jet Range",
+                hud_route: "Live Path: Cairo ➔ Mecca Royal",
+                booking_sub: "Quantum Reservation Engine",
+                booking_title: "Autonomous Space Booking",
+                booking_desc: "Select your parameters. Our predictive AI calculates everything and crafts your luxurious journey with instant transparent pricing.",
+                tab_spiritual: "Sovereign Hajj & Umrah Sanctuary",
+                tab_jet: "Private Luxury Charter Suites",
+                tab_escapes: "Secret Global Retreats",
+                label_origin: "Departure Terminal (VIP Lounge)",
+                opt_cai: "Cairo - Private Aviation VIP Terminal",
+                opt_ruh: "Riyadh - Private Signature Terminal",
+                opt_jed: "Jeddah - Royal Diplomatic Terminal",
+                opt_dxb: "Dubai - Al Maktoum Royal Pavilion",
+                opt_lhr: "London - Private Jet Centre",
+                label_destination: "Sovereign Destination & Sanctuary",
+                opt_makkah_royal: "Makkah (Royal Penthouse Suite directly facing Holy Kaaba)",
+                opt_makkah_exec: "Makkah (Executive Premium Panoramic Suite)",
+                opt_madinah: "Al-Madinah (Spiritual Elite Sanctuary Suite)",
+                opt_alula: "AlUla (Private Luxury Rock-carved Habitas Villa)",
+                opt_maldives: "Maldives (Ultra-private secured Island Retreat)",
+                opt_swiss: "Swiss Alps (Secured Private Alpine Chalet)",
+                label_tier: "Privilege Tier & Royal Support Level",
+                opt_sovereign: "Sovereign Tier (Personal diplomat, full jet, medical security)",
+                opt_imperial: "Imperial Tier (Shared private charter, 7-star palace suite)",
+                opt_first: "Elite First Class (Premium VIP handling, first-row luxury hotels)",
+                label_date: "Launch Schedule Date",
+                label_guests: "Sovereign Companions count",
+                label_addon: "Futuristic Quantum Enhancements",
+                opt_ar: "AR Holy Navigation Goggles (Real-time Divine Guidance)",
+                opt_heli: "Direct Helicopter Shuttle from Terminal to Holy Sanctuary",
+                opt_butler: "Dedicated Sovereign Butler Available 24/7",
+                opt_none: "Standard Executive Amenities Only",
+                calc_title: "Instant Sovereign Budget Estimation",
+                currency: "EGP",
+                calc_all_inclusive: "ALL INCLUSIVE",
+                calc_variance: "*(Subject to adjustment based on communication with the company)",
+                calc_disclaimer: "Price includes luxury private charter flights, royal penthouse suites, local diplomatic visas, and priority permissions.",
+                btn_confirm_booking: "Book & Request Customization via WhatsApp",
+                spiritual_sub: "Sanctuaries of Light & Divinity",
+                spiritual_title: "Elite Hajj & Umrah Pilgrimages",
+                spiritual_desc: "We coordinate pure spiritual paths to the two Holy Mosques featuring unmatched panoramic Kaaba views and elite theological guidance.",
+                spiritual_slots: "Sovereign Hajj allocations: <b class='text-gold-accent font-english'>5</b> remaining",
+                badge_makkah: "Makkah Sanctuary",
+                badge_madinah: "Al-Madinah",
+                badge_technology: "Augmented Reality",
+                pkg1_title: "Sovereign Umrah Suite",
+                pkg1_desc: "Spacious royal suite overlooking the Kaaba, private charter arrangements, express electronic diplomatic visas, and custom-guided prayer rituals.",
+                pkg2_title: "Royal Hajj Sanctuary",
+                pkg2_desc: "Fully air-conditioned exclusive royal camps in Mina & Arafat, around-the-clock VIP medical services, and helicopter transfers.",
+                pkg3_title: "Augmented Spiritual Guide",
+                pkg3_desc: "Our unique AR guidance goggles display rituals and geographic prayer tracks synced with satellite positioning inside the Holy Sanctuary.",
+                pkg_price_from: "Luxury starts from",
+                pkg_select: "Acquire Sanctuary",
+                audio_spiritual_title: "Tawaf Spiritual Guidance Audio",
+                audio_synced: "Intelligent Guidance Synced via Satellite",
+                dest_sub: "The Globe In Royal Comfort",
+                dest_title: "Global Secured Realms",
+                dest_desc: "Travel to the most secured, isolated, and incredibly luxury properties worldwide with premium custom amenities.",
+                tag_heritage: "Heritage Elite",
+                tag_beach: "Isolated Island",
+                tag_alpine: "Glacier Peak",
+                dest1_title: "AlUla - Sacred Desert Retreat",
+                dest1_desc: "Relive ancient civilizational histories in magnificent suspended villas situated beautifully inside the red canyons of AlUla.",
+                dest2_title: "Maldives - Absolute Azure Atoll",
+                dest2_desc: "An overwater estate containing a personal helipad, underwater bedroom lounge, and complete perimeter security.",
+                dest3_title: "Swiss Alps - Celestial Snow Estate",
+                dest3_desc: "Private snowy chalet equipped with therapeutic thermal pools, extreme high-altitude views, and dedicated helicopter shuttles.",
+                dest_temp: "Optimal Atmosphere: <b class='font-english text-gold-accent'>24°C</b>",
+                dest_temp2: "Lagoon Warmth: <b class='font-english text-gold-accent'>28°C</b>",
+                dest_temp3: "Snow Quality: <b class='font-english text-gold-accent'>Prisinte</b>",
+                dest_book_now: "Instant Booking",
+                ai_sub: "Predictive Intelligence",
+                ai_title: "The Ultimate Sovereign Itinerary Designer",
+                ai_desc: "Interact with 'Ameen', our luxury AI planner. Select your core identity archetype below or type details to synthesize a journey.",
+                arch1_title: "The Seeker of Sacred Serenity",
+                arch1_desc: "Complete focus on spiritual connection, absolute silence, and prayer",
+                arch2_title: "The Sovereign Private Explorer",
+                arch2_desc: "Full charter logistics, ultimate perimeter security, restricted access experiences",
+                arch3_title: "The Holistic Wellness Alchemist",
+                arch3_desc: "Private medical retreats and personalized longevity plans",
+                bot_name: "Ameen - Royal Travel Intelligence",
+                bot_online: "ONLINE - QUANTUM THREADS READY",
+                bot_welcome: "Welcome to the future of elite travel. I am Ameen, your bespoke AI intelligence. Choose an archetype or type your request to formulate a royal itinerary immediately.",
+                club_sub: "Sovereign Horizon Club",
+                club_title: "The Sovereign Horizon Syndicate",
+                club_desc: "An invite-only ecosystem providing deep flight logistics, instant suite upgrades, diplomatic terminal access, and luxury assistance worldwide.",
+                club_feat1: "Complimentary Helicopter Transfers",
+                club_feat1_desc: "Direct air transfer from international terminals to your luxury hotel suite in Mecca.",
+                club_feat2: "Instant Royal Suite Upgrades",
+                club_feat2_desc: "Auto-upgrade permissions to Presidential and Royal suites on availability.",
+                story_sub: "Emotional Connections",
+                story_title: "Sovereign Experiences Told",
+                story1_text: "\"This was not simply a trip, it was an elevated cognitive shift. The spiritual tranquility they designed was truly unforgettable.\"",
+                story1_author: "HE Dr. Abdulrahman Al-Fahad",
+                story1_title: "Former Diplomat",
+                story2_text: "\"The integration of AI navigation along with absolute private security is exactly what sovereign families have been waiting for.\"",
+                story2_author: "HH Sheikha Hanouf Al-Thani",
+                story2_title: "Sovereign Tech Investor",
+                story3_text: "\"Al-Ameen redefined luxury from the Middle East. Pristine attention to detail and flawless flight logistics at all levels.\"",
+                story3_author: "Mr. Jonathan Marcus",
+                story3_title: "Global Wealth Strategist",
+                wa_title: "Direct WhatsApp Diplomatic Liaison",
+                wa_desc: "Prefer a direct human connection? Our luxury flight dispatch and reservation diplomats are active 24/7 on WhatsApp.",
+                wa_btn: "Initialize Chat Now (01067010824)",
+                footer_desc: "Al-Ameen Luxury Travel is your premier portal to divine spaces and futuristic aviation, balancing spiritual purity with advanced technology.",
+                footer_nav: "Sovereign Navigation",
+                footer_hubs: "Executive Terminals",
+                hub_riyadh: "Riyadh - Faisaliah Tower Executive Lounge",
+                hub_makkah: "Makkah - Refal Plaza VIP Lounge",
+                hub_dubai: "Dubai - DIFC Sovereign Terminal Office",
+                hub_cairo: "Cairo - Garden City Diplomatic Lounge",
+                newsletter_title: "The Closed Sovereign Journal",
+                newsletter_desc: "Subscribe to receive invite-only itineraries and locked fleet allocations.",
+                newsletter_btn: "Subscribe Privately",
+                footer_copy: "All Sovereign Rights Reserved © 2026 Al-Ameen Luxury Travel."
+            }
+        };
+
+        let currentLang = 'ar';
+        let audioCtx = null;
+        let ambientOsc = null;
+        let isSoundPlaying = false;
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            document.getElementById('lang-text').innerText = currentLang === 'ar' ? 'EN' : 'AR';
+            
+            // Apply fonts based on language
+            if (currentLang === 'en') {
+                document.body.classList.remove('font-arabic');
+                document.body.classList.add('font-english');
+            } else {
+                document.body.classList.remove('font-english');
+                document.body.classList.add('font-arabic');
+            }
+            
+            translatePage();
+        }
+
+        function translatePage() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            calculateEliteEstimate();
+        }
+
+        // Web Audio Cinematic Ambient Soundscape
+        function toggleAmbientSound() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            if (!isSoundPlaying) {
+                audioCtx.resume();
+                
+                // Create a beautiful, warm, deep meditative ambient sound using two oscillators
+                ambientOsc = audioCtx.createOscillator();
+                const secondaryOsc = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                const filterNode = audioCtx.createBiquadFilter();
+
+                ambientOsc.type = 'sine';
+                ambientOsc.frequency.setValueAtTime(110, audioCtx.currentTime); // A2 Note for grounding
+
+                secondaryOsc.type = 'triangle';
+                secondaryOsc.frequency.setValueAtTime(165, audioCtx.currentTime); // E3 perfect fifth
+
+                filterNode.type = 'lowpass';
+                filterNode.frequency.setValueAtTime(300, audioCtx.currentTime);
+
+                gainNode.gain.setValueAtTime(0.001, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.12, audioCtx.currentTime + 3); // Smooth ramp-up
+
+                // Connections
+                ambientOsc.connect(filterNode);
+                secondaryOsc.connect(filterNode);
+                filterNode.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                ambientOsc.start();
+                secondaryOsc.start();
+                
+                // Save node references
+                window.ambientNodes = { osc1: ambientOsc, osc2: secondaryOsc, gain: gainNode };
+                
+                document.getElementById('sound-icon').className = 'fa-solid fa-volume-high text-sm text-gold-accent';
+                isSoundPlaying = true;
+            } else {
+                if (window.ambientNodes) {
+                    const gainNode = window.ambientNodes.gain;
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+                    setTimeout(() => {
+                        window.ambientNodes.osc1.stop();
+                        window.ambientNodes.osc2.stop();
+                    }, 800);
+                }
+                document.getElementById('sound-icon').className = 'fa-solid fa-volume-xmark text-sm';
+                isSoundPlaying = false;
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('opacity-0')) {
+                menu.classList.remove('opacity-0', 'pointer-events-none');
+                menu.classList.add('opacity-100');
+                icon.className = 'fa-solid fa-xmark text-lg';
+            } else {
+                menu.classList.add('opacity-0', 'pointer-events-none');
+                menu.classList.remove('opacity-100');
+                icon.className = 'fa-solid fa-bars text-lg';
+            }
+        }
+
+        // Live Dynamic Cost Calculator in EGP
+        function calculateEliteEstimate() {
+            const dest = document.getElementById('destination-select').value;
+            const tier = document.getElementById('tier-select').value;
+            const guests = parseInt(document.getElementById('guests-select').value);
+            const addon = document.getElementById('addon-select').value;
+
+            let baseCost = 150000; // Base cost in Egyptian Pounds (EGP)
+
+            // Destination multiples
+            if (dest === 'makkah-royal') baseCost = 280000;
+            else if (dest === 'makkah-executive') baseCost = 210000;
+            else if (dest === 'madinah-elite') baseCost = 180000;
+            else if (dest === 'alula') baseCost = 350000;
+            else if (dest === 'maldives') baseCost = 480000;
+            else if (dest === 'swiss-chalet') baseCost = 550000;
+
+            // Tier multiplier
+            let tierMultiplier = 1.0;
+            if (tier === 'sovereign') tierMultiplier = 2.0;
+            else if (tier === 'imperial') tierMultiplier = 1.4;
+            else if (tier === 'first-class') tierMultiplier = 1.0;
+
+            // Addons addition in EGP
+            let addonCost = 0;
+            if (addon === 'ar-glasses') addonCost = 15000;
+            if (addon === 'heli-transfer') addonCost = 75000;
+            if (addon === 'butler') addonCost = 40000;
+
+            const finalCalculatedPrice = Math.round((baseCost * tierMultiplier * guests) + addonCost);
+            
+            // Format number to Arabic or English style
+            const formattedPrice = finalCalculatedPrice.toLocaleString(currentLang === 'ar' ? 'ar-EG' : 'en-US');
+            document.getElementById('price-value').innerText = formattedPrice;
+        }
+
+        function switchBookingTab(tabName) {
+            // Update UI tabs
+            const tabs = ['tab-spiritual', 'tab-private-jet', 'tab-escapes'];
+            tabs.forEach(t => {
+                const el = document.getElementById(t);
+                el.className = "px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 text-slate-600 hover:text-gold-accent hover:bg-slate-50 flex items-center gap-2";
+            });
+
+            let activeTabId = 'tab-spiritual';
+            if (tabName === 'private-jet') activeTabId = 'tab-private-jet';
+            if (tabName === 'escapes') activeTabId = 'tab-escapes';
+
+            document.getElementById(activeTabId).className = "px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 bg-gold-accent text-white flex items-center gap-2 shadow-sm";
+
+            // Dynamically alter selects inside the booking engine for seamless feel
+            const destSelect = document.getElementById('destination-select');
+            destSelect.innerHTML = '';
+
+            if (tabName === 'spiritual') {
+                destSelect.innerHTML = `
+                    <option value="makkah-royal" selected>مكة المكرمة (جناح ملكي مطل مباشرة على الكعبة)</option>
+                    <option value="makkah-executive">مكة المكرمة (جناح تنفيذي بإطلالة كاملة)</option>
+                    <option value="madinah-elite">المدينة المنورة (جناح النخبة الروحاني)</option>
+                `;
+            } else if (tabName === 'private-jet') {
+                destSelect.innerHTML = `
+                    <option value="alula" selected>العلا (فيلا صخرية خاصة مدمجة بالرفاهية)</option>
+                    <option value="swiss-chalet">شاليه خاص في جبال الألب السويسرية</option>
+                `;
+            } else {
+                destSelect.innerHTML = `
+                    <option value="maldives" selected>المالديف (جزيرة خاصة بالكامل مع حراسة)</option>
+                    <option value="alula">العلا (منتجع هابيتاس النخبة)</option>
+                `;
+            }
+            calculateEliteEstimate();
+        }
+
+        function selectPackage(name, basePrice) {
+            // Smoothly scroll down to booking
+            document.getElementById('ai-booking').scrollIntoView({ behavior: 'smooth' });
+            
+            // Select correct items in form
+            const destSelect = document.getElementById('destination-select');
+            if (name.includes('عمرة')) {
+                switchBookingTab('spiritual');
+                destSelect.value = 'makkah-royal';
+            } else if (name.includes('حج')) {
+                switchBookingTab('spiritual');
+                destSelect.value = 'makkah-royal';
+                document.getElementById('tier-select').value = 'sovereign';
+            }
+            calculateEliteEstimate();
+        }
+
+        function selectDestination(name) {
+            document.getElementById('ai-booking').scrollIntoView({ behavior: 'smooth' });
+            if (name === 'العلا') {
+                switchBookingTab('private-jet');
+                document.getElementById('destination-select').value = 'alula';
+            } else if (name === 'المالديف') {
+                switchBookingTab('escapes');
+                document.getElementById('destination-select').value = 'maldives';
+            } else if (name === 'جبال الألب السويسرية') {
+                switchBookingTab('private-jet');
+                document.getElementById('destination-select').value = 'swiss-chalet';
+            }
+            calculateEliteEstimate();
+        }
+
+        // Send custom reservation data directly via WhatsApp to +201067010824
+        function submitVIPReservation() {
+            const origin = document.getElementById('origin-select').options[document.getElementById('origin-select').selectedIndex].text;
+            const destination = document.getElementById('destination-select').options[document.getElementById('destination-select').selectedIndex].text;
+            const tier = document.getElementById('tier-select').options[document.getElementById('tier-select').selectedIndex].text;
+            const date = document.getElementById('travel-date').value;
+            const guests = document.getElementById('guests-select').value;
+            const addon = document.getElementById('addon-select').options[document.getElementById('addon-select').selectedIndex].text;
+            const price = document.getElementById('price-value').innerText;
+
+            const message = `أهلاً الرفيق الأمين للسياحة والسفر، أريد تخصيص رحلة ملكية فاخرة بالبيانات التالية:
+- من: ${origin}
+- إلى: ${destination}
+- الفئة: ${tier}
+- التاريخ: ${date}
+- عدد المسافرين: ${guests}
+- الإضافات الذكية: ${addon}
+- الميزانية التقريبية المقدرة: ${price} جنيه مصري.
+يرجى التواصل معي فوراً عبر المستشار السيادي المخصص لتأكيد الحجز وتنسيق التفاصيل الخاصة بالرحلة وطريقة الدفع.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/201067010824?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Live Chat AI Simulator
+        const chatResponses = {
+            spiritual: [
+                "إن اختيارك لمسار السكينة يظهر رغبة عميقة في الارتقاء الروحي. سأقوم بتنظيم رحلة عمرة تبدأ من الطيران الخاص الفاخر من القاهرة مباشرة إلى جدة. ستنتظركم سيارة رولز رويس ملكية لنقلكم إلى الجناح الملكي ببرج ريفال والمطل مباشرة على الكعبة المشرفة.",
+                "أعددنا لكم كذلك نظام الإرشاد الرقمي ثلاثي الأبعاد والواقع المعزز، مع مرافقة فقهية من كبار العلماء في الحرمين لراحتكم وسكينتكم."
+            ],
+            sovereign: [
+                "مرحباً بك في المستوى السيادي. سنقوم بفتح صالة VIP الحصرية وتأمين حماية أمنية مخصصة. ستحلق طائرتكم الخاصة Gulfstream G700 إلى جزر المالديف المنعزلة، حيث تم تأمين منتجع جزائري كامل مجهز بمهبط طائرات مروحية وحراسة خاصة.",
+                "جميع تفاصيل الخدمة ستكون مغلقة ولا تتاح للعامة لضمان الخصوصية القصوى."
+            ],
+            wellbeing: [
+                "ملاذ الاستشفاء المختار يقع بين قمم جبال الألب السويسرية في شاليه طبيعي نقي. قمنا بتنسيق برامج علاجية مخصصة لتجديد الحيوية وطول العمر بالتعاون مع أرقى الأطباء السويسريين.",
+                "يشمل المسار تنقلات هليكوبتر حصرية ومأكولات معدة بواسطة طهاة حائزين على نجمة ميشلان لتناسب نظامكم الصحي الفاخر."
+            ]
+        };
+
+        function selectArchetype(type) {
+            const chatBox = document.getElementById('ai-chat-box');
+            chatBox.innerHTML = ''; // Clear chat
+
+            // Add user bubble first
+            let userMsg = "";
+            if (type === 'spiritual') userMsg = currentLang === 'ar' ? "أريد تصميم رحلة روحانية هادئة" : "I want to design a serene spiritual journey";
+            if (type === 'sovereign') userMsg = currentLang === 'ar' ? "أريد أعلى مستوى من الخصوصية والطيران الخاص" : "I require the ultimate private sovereign charter";
+            if (type === 'wellbeing') userMsg = currentLang === 'ar' ? "أريد رحلة استجمام واستشفاء عالمي فاخر" : "I need a global luxury wellness and rejuvenation retreat";
+
+            chatBox.innerHTML += `
+                <div class="flex gap-4 items-start justify-end text-left">
+                    <div class="glass-panel-light p-4 rounded-2xl rounded-tl-none max-w-[85%] bg-royal-50/50 text-slate-900 border-royal-200">
+                        <p class="text-sm font-semibold leading-relaxed">${userMsg}</p>
+                    </div>
+                </div>
+            `;
+
+            // Auto scroll
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Generate bot responses dynamically
+            setTimeout(() => {
+                const responses = chatResponses[type];
+                responses.forEach((resp, idx) => {
+                    setTimeout(() => {
+                        chatBox.innerHTML += `
+                            <div class="flex gap-4 items-start text-right">
+                                <div class="w-8 h-8 rounded-full bg-royal-100 flex items-center justify-center text-xs text-royal-500 flex-shrink-0 border border-royal-200 font-bold">أ</div>
+                                <div class="glass-panel-light p-4 rounded-2xl rounded-tr-none max-w-[85%] bg-slate-50 border-slate-100">
+                                    <p class="text-sm text-slate-800 font-semibold leading-relaxed">${resp}</p>
+                                </div>
+                            </div>
+                        `;
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    }, idx * 1000);
+                });
+            }, 800);
+        }
+
+        function sendCustomAiMessage() {
+            const input = document.getElementById('ai-custom-input');
+            const val = input.value.trim();
+            if (!val) return;
+
+            const chatBox = document.getElementById('ai-chat-box');
+            
+            // Render user bubble
+            chatBox.innerHTML += `
+                <div class="flex gap-4 items-start justify-end text-left">
+                    <div class="glass-panel-light p-4 rounded-2xl rounded-tl-none max-w-[85%] bg-royal-50/50 text-slate-900 border-royal-200">
+                        <p class="text-sm font-semibold leading-relaxed">${val}</p>
+                    </div>
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+            input.value = '';
+
+            // Simulated intelligent customized responses
+            setTimeout(() => {
+                chatBox.innerHTML += `
+                    <div class="flex gap-4 items-start text-right">
+                        <div class="w-8 h-8 rounded-full bg-royal-100 flex items-center justify-center text-xs text-royal-500 flex-shrink-0 border border-royal-200 font-bold">أ</div>
+                        <div class="glass-panel-light p-4 rounded-2xl rounded-tr-none max-w-[85%] bg-slate-50 border-slate-100">
+                            <p class="text-sm text-slate-800 font-semibold leading-relaxed">
+                                لقد قمت بتحليل رغبتك الاستثنائية: "${val}". سأقوم بالتنسيق فوراً مع كبائن الطيران الخاص لتقديم مسار مخصص بالكامل وتكلفة تقديرية دقيقة بالجنيه المصري تناسب هذه الرؤية الراقية.
+                            </p>
+                        </div>
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1200);
+        }
+
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            alert(currentLang === 'ar' ? `تم تسجيل بريدكم بنجاح: ${email}، ستصلكم قريباً دعواتنا السرية الحصرية.` : `Subscription registered successfully for: ${email}. Welcome to the Sovereign syndicate.`);
+            document.getElementById('newsletter-email').value = '';
+        }
+
+        window.onload = function() {
+            calculateEliteEstimate();
+        };
+    </script>
+</body>
+</html>
